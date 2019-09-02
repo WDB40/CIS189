@@ -1,3 +1,12 @@
+"""
+Program: camper_age_input.py
+Author: Wes Brown
+Last date modified: 09/02/19
+
+Purpose: To create, test, and use a function with python.
+"""
+
+
 MONTHS_IN_YEARS = 12
 
 
