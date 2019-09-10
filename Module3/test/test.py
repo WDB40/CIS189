@@ -1,3 +1,11 @@
+"""
+Program: test.py (average_score.py)
+Author: Wes Brown
+Last date modified: 09/09/19
+
+Purpose: To create, test, and use an average function.
+"""
+
 import unittest
 from unittest import mock
 
