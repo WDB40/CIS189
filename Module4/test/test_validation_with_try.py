@@ -22,6 +22,10 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             average(-1, 90, 90)
 
+    def test_second_invalid_input(self):
+        with self.assertRaises(ValueError):
+            average(90, -1, 90)
+
 
 if __name__ == '__main__':
     unittest.main()
