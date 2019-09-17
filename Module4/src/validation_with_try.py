@@ -16,3 +16,15 @@ def average(score1, score2, score3):
         average_score = float((score1 + score2 + score3) / NUMBER_TESTS)
 
     return average_score
+
+
+if __name__ == '__main__':
+
+    try:
+        print(average(-1, 90, 90))
+    except ValueError:
+        print("An error occurred")
+    else:
+        print("Nothing bad happened")
+    finally:
+        print("We tried, at least. Not sure how it went.")
