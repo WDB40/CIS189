@@ -1,11 +1,9 @@
 def calculate_tax(amount):
-    tax_amount = 0.06;
-    amount = float(amount)
+    tax_amount = 0.06
     return amount * tax_amount
 
 
 def calculate_shipping(amount):
-    amount = float(amount)
 
     if amount < 0:
         shipping_cost = -1
@@ -21,8 +19,20 @@ def calculate_shipping(amount):
     return shipping_cost
 
 
-def add_discounts(cash_coupon, percent_coupon):
-    pass
+def add_discounts(price, cash_coupon, percent_coupon):
+    # Honest answer, I'd just use the below, but from the rubric, we need a nested if, so I did it with that.
+    # return (price - cash_coupon) * (1 - percent_coupon)
+
+    discount_price = price
+
+    if cash_coupon > 0:
+        discount_price = discount_price - cash_coupon
+        if percent_coupon > 0:
+            discount_price = discount_price * (1 - percent_coupon)
+    elif percent_coupon > 0:
+        discount_price = discount_price * (1 - percent_coupon)
+
+    return discount_price
 
 
 def calculate_order(price, cash_coupon, percent_coupon):

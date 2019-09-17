@@ -1,6 +1,6 @@
 import unittest
 
-from Module4.src.calculate_order import calculate_shipping, calculate_tax
+from Module4.src.calculate_order import calculate_shipping, calculate_tax, add_discounts, calculate_order
 
 
 class MyTestCase(unittest.TestCase):
@@ -41,22 +41,22 @@ class MyTestCase(unittest.TestCase):
         self.assertAlmostEqual(3.6, calculate_tax(60))
 
     def test_with_only_cash_coupon(self):
-        pass
+        self.assertEqual(add_discounts(10, 5, 0), 5)
 
     def test_with_only_percent_coupon(self):
-        pass
+        self.assertEqual(add_discounts(10, 0, 0.1), 9)
 
     def test_with_both_coupons(self):
-        pass
+        self.assertEqual(add_discounts(15, 5, 0.2), 8)
 
     def test_total_order_1(self):
-        pass
+        self.assertAlmostEqual(36.57, calculate_order(33, 3, 0.1))
 
     def test_total_order_2(self):
-        pass
+        self.assertAlmostEqual(84.8, calculate_order(105, 5, 0.2))
 
     def test_total_order_3(self):
-        pass
+        self.assertAlmostEqual(14.006, calculate_order(9, 1, 0.05))
 
 
 if __name__ == '__main__':
