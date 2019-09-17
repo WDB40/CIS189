@@ -1,6 +1,6 @@
 import unittest
 
-from Module4.src.calculate_order import calculate_shipping
+from Module4.src.calculate_order import calculate_shipping, calculate_tax
 
 
 class MyTestCase(unittest.TestCase):
@@ -26,19 +26,19 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(calculate_shipping(-50), -1)
 
     def test_tax_5(self):
-        pass
+        self.assertEqual(calculate_tax(5), 0.3)
 
     def test_tax_15(self):
-        pass
+        self.assertEqual(calculate_tax(15), 0.9)
 
     def test_tax_30(self):
-        pass
+        self.assertEqual(calculate_tax(30), 1.8)
 
     def test_tax_45(self):
-        pass
+        self.assertEqual(calculate_tax(45), 2.7)
 
     def test_tax_60(self):
-        pass
+        self.assertEqual(calculate_tax(60), 3.6)
 
     def test_with_only_cash_coupon(self):
         pass
