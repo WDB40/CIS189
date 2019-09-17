@@ -24,6 +24,9 @@ class MyTestCase(unittest.TestCase):
     def test_second_invalid_input(self):
         self.assertEqual(-1, average(80, -80, 80))
 
+    def test_third_invalid_input(self):
+        self.assertEqual(-1, average(80, 80, -80))
+
 
 if __name__ == '__main__':
     unittest.main()
