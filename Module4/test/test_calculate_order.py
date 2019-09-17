@@ -22,6 +22,9 @@ class MyTestCase(unittest.TestCase):
     def test_50_over_shipping(self):
         self.assertEqual(calculate_shipping(50), 0)
 
+    def test_invalid_shipping(self):
+        self.assertEqual(calculate_shipping(-50), -1)
+
     def test_tax_5(self):
         pass
 
