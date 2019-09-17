@@ -36,4 +36,7 @@ def add_discounts(price, cash_coupon, percent_coupon):
 
 
 def calculate_order(price, cash_coupon, percent_coupon):
-    pass
+    discount_price = add_discounts(price, cash_coupon, percent_coupon)
+    total = discount_price + calculate_tax(discount_price) + calculate_shipping(discount_price)
+
+    return total
