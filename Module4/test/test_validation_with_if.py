@@ -1,3 +1,11 @@
+"""
+Program: test_validations_with_if.py (validations_with_if.py)
+Author: Wes Brown
+Last date modified: 09/16/19
+
+Purpose: To test the averaging of 3 scores.
+"""
+
 import unittest
 from Module4.src.validation_with_if import average
 
