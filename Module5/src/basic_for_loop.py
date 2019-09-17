@@ -1,3 +1,12 @@
+"""
+Program: basic_for_loop.py
+Author: Wes Brown
+Last date modified: 09/17/19
+
+Purpose: To begin using for loops in python
+"""
+
+
 def print_list(input_list):
     for item in input_list:
         print(item)
