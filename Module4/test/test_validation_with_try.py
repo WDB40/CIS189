@@ -7,7 +7,7 @@ Purpose: To test the averaging of 3 scores with exceptions.
 """
 
 import unittest
-from Module4.src.validation_with_if import average
+from Module4.src.validation_with_try import average
 
 
 class MyTestCase(unittest.TestCase):
