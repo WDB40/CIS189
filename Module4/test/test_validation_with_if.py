@@ -18,6 +18,8 @@ class MyTestCase(unittest.TestCase):
     def test_average_again(self):
         self.assertEqual(77, average(77, 77, 77))
 
+    def test_invalid_input(self):
+        self.assertEqual(-1, average(-80, 80, 80))
 
 if __name__ == '__main__':
     unittest.main()
