@@ -1,3 +1,11 @@
+"""
+Program: calculate_order.py
+Author: Wes Brown
+Last date modified: 09/16/19
+
+Purpose: To calculate an order with discounts, shipping, and tax.
+"""
+
 def calculate_tax(amount):
     tax_amount = 0.06
     return amount * tax_amount

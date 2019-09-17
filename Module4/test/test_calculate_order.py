@@ -1,3 +1,11 @@
+"""
+Program: test_calculate_order.py (calculate_order.py)
+Author: Wes Brown
+Last date modified: 09/16/19
+
+Purpose: To test the calculation of an order with discounts, shipping, and tax.
+"""
+
 import unittest
 
 from Module4.src.calculate_order import calculate_shipping, calculate_tax, add_discounts, calculate_order
