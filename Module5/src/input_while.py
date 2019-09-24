@@ -1,3 +1,12 @@
+"""
+Program: input_while_exit.py
+Author: Wes Brown
+Last date modified: 09/23/19
+
+Purpose: To take in values and then print them out.
+"""
+
+
 def get_list_of_numbers():
     MIN = 1
     MAX = 100
