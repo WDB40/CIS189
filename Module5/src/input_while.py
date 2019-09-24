@@ -1,5 +1,5 @@
 """
-Program: input_while_exit.py
+Program: input_while.py
 Author: Wes Brown
 Last date modified: 09/23/19
 
