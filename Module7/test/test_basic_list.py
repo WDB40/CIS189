@@ -13,9 +13,9 @@ from Module7.src.basic_list import *
 
 
 class MyTestCase(unittest.TestCase):
-    @patch('Module7.src.basic_list.get_input', return_value='5')
-    def test_something(self):
-        self.assertEqual(make_list(), [5, 5, 5])
+    @patch('Module7.src.basic_list.get_input', return_value=10)
+    def test_make_list(self, input):
+        self.assertEqual(make_list(), [10, 10, 10])
 
 
 if __name__ == '__main__':
