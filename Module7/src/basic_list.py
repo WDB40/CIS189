@@ -32,4 +32,5 @@ def make_list():
 
 
 if __name__ == '__main__':
-    get_input()
+    user_input = get_input()
+    my_list = make_list()
