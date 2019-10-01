@@ -17,6 +17,13 @@ class MyTestCase(unittest.TestCase):
     def test_make_list(self, input):
         self.assertEqual(make_list(), [10, 10, 10])
 
+    @patch('Module7.src.basic_list.get_input', return_value=15)
+    def test_make_list_2(self, input):
+        self.assertEqual(make_list(), [15, 15, 15])
+
+    @patch('Module7.src.basic_list.get_input', return_value=20)
+    def test_make_list_3(self, input):
+        self.assertEqual(make_list(), [20, 20, 20])
 
 if __name__ == '__main__':
     unittest.main()
