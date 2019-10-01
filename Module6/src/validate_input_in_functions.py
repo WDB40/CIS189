@@ -14,6 +14,7 @@ Validate the information for a score
 :param invalid_message: optional (default="Invalid test score, try again") - stores the message used for invalid data
 """
 
+
 def valid_score(score):
     if score > 100 or score < 0:
         return False
@@ -24,8 +25,11 @@ def valid_score(score):
 def score_input(test_name, test_score=0, invalid_message="Invalid test score, try again!"):
     output = invalid_message;
 
-    if valid_score(test_score):
-        output = "%s: %d" % (test_name, test_score)
+    try:
+        if valid_score(test_score):
+            output = "%s: %d" % (test_name, test_score)
+    except TypeError:
+        output = invalid_message  # Don't really need this here, but didn't want a blank catch
 
     # return {test_name: test_score}
     return output
