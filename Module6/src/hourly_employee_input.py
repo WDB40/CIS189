@@ -3,7 +3,7 @@ Program: hourly_employee_input.py
 Author: Wes Brown
 Last date modified: 10/01/19
 
-Purpose: Display employee information such as name and pay.
+Purpose: Display employee information such as name and weekly pay.
 """
 
 
@@ -50,13 +50,16 @@ def get_pay_rate():
     return user_input
 
 
+def weekly_pay(hours_worked, pay_rate):
+    return hours_worked * pay_rate
+
+
 def hourly_employee_input():
     emp_name = get_name()
-    emp_hours_worked = get_hours_worked()
-    emp_pay_rate = get_pay_rate()
+    emp_weekly_pay = weekly_pay(get_hours_worked(), get_pay_rate())
 
-    print("Name: %s; Pay Rate: %.2f; Hours Worked: %d" % (emp_name, emp_pay_rate, emp_hours_worked))
+    return "Name: %s; Weekly Pay: $%.2f" % (emp_name, emp_weekly_pay)
 
 
 if __name__ == '__main__':
-    hourly_employee_input()
+    print(hourly_employee_input())
