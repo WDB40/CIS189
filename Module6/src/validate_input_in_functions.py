@@ -12,6 +12,7 @@ Validate the information for a score
 :param test_name: mandatory - stores the name of the test
 :param test_score: option (default=0) - stores the score of the test (valid range 0-100)
 :param invalid_message: optional (default="Invalid test score, try again") - stores the message used for invalid data
+:returns output: the result after the score is validated
 """
 
 
