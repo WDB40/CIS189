@@ -10,6 +10,8 @@ Purpose: Working with inner functions.
 def area(rec_measurements):
     if len(rec_measurements) == 2:
         return rec_measurements[0] * rec_measurements[1]
+    elif len(rec_measurements) == 1:
+        return rec_measurements[0] * rec_measurements[0]
 
 
 def perimeter(rec_measurements):
@@ -20,6 +22,8 @@ def perimeter(rec_measurements):
 
     if len(rec_measurements) == 2:
         return sides_total * 2
+    elif len(rec_measurements) == 1:
+        return sides_total * 4
 
 
 def measurements(rec_measurements):
