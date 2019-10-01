@@ -16,5 +16,7 @@ Validate the information for a score
 
 
 def score_input(test_name, test_score=0, invalid_message="Invalid test score, try again"):
+    output = "%s: %d" % (test_name, test_score)
+
     # return {test_name: test_score}
-    pass
+    return output
