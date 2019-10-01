@@ -16,7 +16,7 @@ def get_input():
 
         try:
             user_input = int(user_input)
-        except TypeError:
+        except ValueError:
             user_input = INVALID_INPUT
 
     return user_input
@@ -32,4 +32,4 @@ def make_list():
 
 
 if __name__ == '__main__':
-    pass
+    get_input()
