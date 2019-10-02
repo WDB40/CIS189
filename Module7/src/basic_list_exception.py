@@ -29,6 +29,11 @@ def make_list():
 
         user_input = get_input()
 
+        try:
+            user_input = int(user_input)
+        except ValueError:
+            raise ValueError
+
         if 1 <= user_input <= 50:
             value_list.insert(i, user_input)
         else:
