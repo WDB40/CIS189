@@ -26,11 +26,16 @@ def make_list():
     value_list = []
 
     for i in range(0, 3):
-        value_list.insert(i, get_input())
+
+        user_input = get_input()
+
+        if 1 <= user_input <= 50:
+            value_list.insert(i, user_input)
+        else:
+            raise ValueError
 
     return value_list
 
 
 if __name__ == '__main__':
-    user_input = get_input()
     my_list = make_list()

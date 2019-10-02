@@ -41,6 +41,5 @@ class MyTestCase(unittest.TestCase):
             make_list()
 
 
-
 if __name__ == '__main__':
     unittest.main()
