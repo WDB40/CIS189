@@ -11,6 +11,9 @@ import unittest
 from Module7.src.sort_and_search_array import *
 
 
+import array as arr
+
+
 class MyTestCase(unittest.TestCase):
     def test_search_item_found(self):
         self.assertEqual(search_array([1, 2, 3, 4, 5], 3), 2)
@@ -19,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(search_array([1, 2, 3, 4, 5], 6), -1)
 
     def test_sort_array(self):
-        self.assertEqual(sort_array([5, 1, 4, 2, 3]), [1, 2, 3, 4, 5])
+        self.assertEqual(sort_array([5, 1, 4, 2, 3]), arr.array('i', [1, 2, 3, 4, 5]))
 
 
 if __name__ == '__main__':

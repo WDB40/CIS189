@@ -12,7 +12,11 @@ import array as arr
 
 def sort_array(items):
     # from a testability perspective, I am going to return a value
-    pass
+    items_array = arr.array('i', items)
+    back_to_list = items_array.tolist()
+    back_to_list.sort()
+    items_array = arr.array('i', back_to_list)
+    return items_array
 
 
 def search_array(items, item):
