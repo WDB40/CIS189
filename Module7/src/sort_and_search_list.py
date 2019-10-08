@@ -7,11 +7,12 @@ Purpose: Sorting and searching a list in python.
 """
 
 
-def sort_list():
+def sort_list(items):
+    # we aren't passing anything back since the reference is based in
     pass
 
 
-def search_list(list, value):
+def search_list(items, value):
     pass
 
 
