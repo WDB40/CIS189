@@ -18,6 +18,12 @@ class MyTestCase(unittest.TestCase):
     def test_search_item_not_found(self):
         self.assertEqual(search_list([1, 2, 3, 4], 5), -1)
 
+    def test_sort_numbers(self):
+        self.assertEqual(sort_list([5, 1, 4, 3, 2]), [1, 2, 3, 4, 5])
+
+    def test_sort_alpha(self):
+        self.assertEqual(sort_list(["e", "a", "d", "b", "c"]), ["a", "b", "c", "d", "e"])
+
 
 if __name__ == '__main__':
     unittest.main()

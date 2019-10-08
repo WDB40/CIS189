@@ -9,6 +9,7 @@ Purpose: Sorting and searching a list in python.
 
 def sort_list(items):
     # we aren't passing anything back since the reference is based in
+    # actually making this return a value for testing purposes
     pass
 
 
