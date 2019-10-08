@@ -13,7 +13,15 @@ def sort_list(items):
 
 
 def search_list(items, value):
-    pass
+    INVALID_VALUE = -1
+    index = INVALID_VALUE
+
+    try:
+        index = items.index(value)
+    except ValueError:
+        index = INVALID_VALUE
+
+    return index
 
 
 if __name__ == '__main__':
