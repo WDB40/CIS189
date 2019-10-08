@@ -18,6 +18,9 @@ class MyTestCase(unittest.TestCase):
     def test_search_item_not_found(self):
         self.assertEqual(search_array([1, 2, 3, 4, 5], 6), -1)
 
+    def test_sort_array(self):
+        self.assertEqual(sort_array([5, 1, 4, 2, 3]), [1, 2, 3, 4, 5])
+
 
 if __name__ == '__main__':
     unittest.main()
