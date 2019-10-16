@@ -7,8 +7,12 @@ Purpose: Use datetime to calculate a half-birthday
 """
 
 
+from datetime import timedelta, date, datetime
+from dateutil.relativedelta import *
+
+
 def half_birthday(birthday):
-    pass
+    return birthday + relativedelta(months=6)
 
 
 if __name__ == '__main__':
