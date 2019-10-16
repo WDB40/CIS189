@@ -21,6 +21,9 @@ class MyTestCase(unittest.TestCase):
     def test_return_B(self):
         self.assertEqual(switch_average("B"), 80)
 
+    def test_return_b(self):
+        self.assertEqual(switch_average("b"), 80)
+
     def test_return_C(self):
         self.assertEqual(switch_average("C"), 70)
 
