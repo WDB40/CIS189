@@ -15,6 +15,12 @@ class MyTestCase(unittest.TestCase):
     def test_half_birthday(self):
         self.assertEqual(half_birthday(datetime(2019, 5, 10)), datetime(2019, 11, 10))
 
+    def test_half_birthday_2(self):
+        self.assertEqual(half_birthday(datetime(2019, 12, 10)), datetime(2020, 6, 10))
+
+    def test_half_birthday_3(self):
+        self.assertEqual(half_birthday(datetime(2019, 1, 10)), datetime(2019, 7, 10))
+
 
 if __name__ == '__main__':
     unittest.main()
