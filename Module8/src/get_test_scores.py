@@ -40,8 +40,23 @@ def average_scores(the_dict):
     return total / len(the_dict)
 
 
+def get_num_tests():
+    INVALID_INPUT = -1
+    MAX_SCORE = 10
+    MIN_SCORE = 1
+    user_input = INVALID_INPUT
+
+    while not valid_number(user_input, MIN_SCORE, MAX_SCORE):
+        try:
+            user_input = int(input("Enter the number of tests: "))
+        except ValueError:
+            user_input = INVALID_INPUT
+
+    return user_input
+
+
 if __name__ == '__main__':
-    num_scores = int(input("Enter the number of test scores: "))
+    num_scores = get_num_tests()
     scores_dict = dict()
 
     for i in range(1, num_scores + 1):
