@@ -8,7 +8,7 @@ Purpose: Practice working with sets in Python
 
 
 def in_set(the_set, the_element):
-    pass
+    return the_element in the_set
 
 
 if __name__ == '__main__':
