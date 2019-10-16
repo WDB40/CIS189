@@ -8,7 +8,7 @@ Purpose: Practice working with dictionaries in Python
 
 
 def in_dict(the_dict, the_key):
-    pass
+    return the_key in the_dict
 
 
 if __name__ == '__main__':
