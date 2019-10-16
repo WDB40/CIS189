@@ -31,8 +31,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(switch_average("F"), 50)
 
     def test_key_not_found(self):
-        with self.assertRaises(KeyError):
-            switch_average("G")
+        self.assertEqual(switch_average("g"), -1)
 
 
 if __name__ == '__main__':

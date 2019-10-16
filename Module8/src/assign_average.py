@@ -8,4 +8,16 @@ Purpose: Using dictionaries to implement a switch-esque statement
 
 
 def switch_average(key):
-    pass
+    KEY_NOT_FOUND = -1
+
+    key.upper()
+
+    switcher = {
+        "A": 90,
+        "B": 80,
+        "C": 70,
+        "D": 60,
+        "F": 50
+    }
+
+    return switcher.get(key, KEY_NOT_FOUND)
