@@ -7,15 +7,37 @@ Purpose: Using dictionaries to implement a switch-esque statement
 """
 
 
+def get_a():
+    return 90
+
+
+def get_b():
+    return 80
+
+
+def get_c():
+    return 70
+
+
+def get_d():
+    return 60
+
+
+def get_f():
+    return 50
+
+
 def switch_average(key):
     KEY_NOT_FOUND = -1
 
     switcher = {
-        "A": 90,
-        "B": 80,
-        "C": 70,
-        "D": 60,
-        "F": 50
+        "A": get_a(),
+        "B": get_b(),
+        "C": get_c(),
+        "D": get_d(),
+        "F": get_f()
     }
 
-    return switcher.get(key.upper(), KEY_NOT_FOUND)
+    func = switcher.get(key.upper(), KEY_NOT_FOUND)
+
+    return func
