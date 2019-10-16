@@ -39,6 +39,9 @@ class MyTestCase(unittest.TestCase):
     def test_return_F(self):
         self.assertEqual(switch_average("F"), 50)
 
+    def test_return_f(self):
+        self.assertEqual(switch_average("f"), 50)
+
     def test_key_not_found(self):
         self.assertEqual(switch_average("g"), -1)
 
