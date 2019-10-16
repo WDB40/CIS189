@@ -18,9 +18,9 @@ def valid_number(value, min, max):
 
 def get_test_score():
     INVALID_INPUT = -1
-    user_input = INVALID_INPUT
     MAX_SCORE = 100
     MIN_SCORE = 0
+    user_input = INVALID_INPUT
 
     while not valid_number(user_input, MIN_SCORE, MAX_SCORE):
         try:
