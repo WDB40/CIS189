@@ -26,4 +26,7 @@ def print_set(the_set):
 
 
 if __name__ == '__main__':
-    pass
+    greeting()
+    message()
+    print_dict({"A": 1, "B": 2, "C": 3, "D": 4, "E": 5})
+    print_set({1, 2, 3, 4, 5})
