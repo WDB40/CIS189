@@ -14,6 +14,11 @@ def _valid_GPA(gpa):
     return MAX_GPA >= gpa >= MIN_GPA
 
 
+def _valid_noun(name):
+    name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-")
+    return name_characters.issuperset(name)
+
+
 class Student:
 
     def __init__(self, lname, fname, major, gpa=0.0):
@@ -28,7 +33,10 @@ class Student:
 
     @lname.setter
     def lname(self, value):
-        self._lname = value
+        if _valid_noun(value):
+            self._lname = value.issupperset
+        else:
+            raise ValueError
 
     @property
     def fname(self):
@@ -36,7 +44,10 @@ class Student:
 
     @fname.setter
     def fname(self, value):
-        self._fname = value
+        if _valid_noun(value):
+            self._fname = value
+        else:
+            raise ValueError
 
     @property
     def major(self):
@@ -44,7 +55,10 @@ class Student:
 
     @major.setter
     def major(self, value):
-        self._major = value
+        if _valid_noun(value):
+            self._major = value
+        else:
+            raise ValueError
 
     @property
     def gpa(self):
