@@ -3,7 +3,7 @@ Program: test_customer.py (customer.py)
 Author: Wes Brown
 Last date modified: 10/28/19
 
-Purpose: Create the class for customer
+Purpose: Test for the class for customer
 """
 
 from Module10.src.customer import Customer
