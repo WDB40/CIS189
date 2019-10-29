@@ -43,6 +43,10 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(TypeError):
             this_student = Student(self.FNAME, self.MAJOR)
 
+    def test_object_not_created_error_first_name(self):
+        with self.assertRaises(TypeError):
+            this_student = Student(self.LNAME, self.MAJOR)
+
 
 if __name__ == '__main__':
     unittest.main()
