@@ -11,7 +11,7 @@ def _valid_GPA(gpa):
     MAX_GPA = 4.0
     MIN_GPA = 0.0
 
-    return MAX_GPA >= gpa >= MIN_GPA
+    return isinstance(gpa, float) and MAX_GPA >= gpa >= MIN_GPA
 
 
 def _valid_noun(name):
@@ -34,7 +34,7 @@ class Student:
     @lname.setter
     def lname(self, value):
         if _valid_noun(value):
-            self._lname = value.issupperset
+            self._lname = value
         else:
             raise ValueError
 

@@ -39,17 +39,24 @@ class MyTestCase(unittest.TestCase):
         assert this_student.major == self.MAJOR
         assert this_student.gpa == this_gpa
 
+    def test_student_str(self):
+        expected = self.LNAME + ", " + self.FNAME + " has major " + self.MAJOR + "with gpa: " + str(self.GPA)
+        assert str(self.student) == expected
+
     def test_object_not_created_error_last_name(self):
-        with self.assertRaises(TypeError):
-            this_student = Student(self.FNAME, self.MAJOR)
+        with self.assertRaises(ValueError):
+            this_lname = "123"
+            this_student = Student(this_lname, self.FNAME, self.MAJOR)
 
     def test_object_not_created_error_first_name(self):
-        with self.assertRaises(TypeError):
-            this_student = Student(self.LNAME, self.MAJOR)
+        with self.assertRaises(ValueError):
+            this_fname = "123"
+            this_student = Student(self.LNAME, this_fname, self.MAJOR)
 
     def test_object_not_created_error_major_name(self):
-        with self.assertRaises(TypeError):
-            this_student = Student(self.LNAME, self.FNAME)
+        with self.assertRaises(ValueError):
+            this_major = "123"
+            this_student = Student(self.LNAME, self.FNAME, this_major)
 
     def test_object_not_created_error_gpa_high(self):
         with self.assertRaises(ValueError):
@@ -59,6 +66,11 @@ class MyTestCase(unittest.TestCase):
     def test_object_not_created_error_gpa_low(self):
         with self.assertRaises(ValueError):
             this_gpa = -1.0
+            this_student = Student(self.LNAME, self.FNAME, self.MAJOR, this_gpa)
+
+    def test_object_not_created_error_gpa_int(self):
+        with self.assertRaises(ValueError):
+            this_gpa = 2
             this_student = Student(self.LNAME, self.FNAME, self.MAJOR, this_gpa)
 
 
