@@ -56,6 +56,11 @@ class MyTestCase(unittest.TestCase):
             this_gpa = 5.0
             this_student = Student(self.LNAME, self.FNAME, self.MAJOR, this_gpa)
 
+    def test_object_not_created_error_gpa_low(self):
+        with self.assertRaises(ValueError):
+            this_gpa = -1.0
+            this_student = Student(self.LNAME, self.FNAME, self.MAJOR, this_gpa)
+
 
 if __name__ == '__main__':
     unittest.main()
