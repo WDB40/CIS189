@@ -7,6 +7,13 @@ Purpose: Create the class for Student
 """
 
 
+def _valid_GPA(gpa):
+    MAX_GPA = 4.0
+    MIN_GPA = 0.0
+
+    return MAX_GPA >= gpa >= MIN_GPA
+
+
 class Student:
 
     def __init__(self, lname, fname, major, gpa=0.0):
@@ -45,7 +52,10 @@ class Student:
 
     @gpa.setter
     def gpa(self, value):
-        self._gpa = value
+        if _valid_GPA(value):
+            self._gpa = value
+        else:
+            raise ValueError
 
     def __str__(self) -> str:
         return self.lname + ", " + self.fname + " has major " + self.major + "with gpa: " + str(self.gpa)

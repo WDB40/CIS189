@@ -51,7 +51,7 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(TypeError):
             this_student = Student(self.LNAME, self.FNAME)
 
-    def test_object_not_created_error_gpa(self):
+    def test_object_not_created_error_gpa_high(self):
         with self.assertRaises(ValueError):
             this_gpa = 5.0
             this_student = Student(self.LNAME, self.FNAME, self.MAJOR, this_gpa)
