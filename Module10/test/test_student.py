@@ -39,7 +39,9 @@ class MyTestCase(unittest.TestCase):
         assert this_student.major == self.MAJOR
         assert this_student.gpa == this_gpa
 
-
+    def test_object_not_created_error_last_name(self):
+        with self.assertRaises(TypeError):
+            this_student = Student(self.FNAME, self.MAJOR)
 
 
 if __name__ == '__main__':
