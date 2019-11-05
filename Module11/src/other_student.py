@@ -50,4 +50,4 @@ class Student:
         self._gpa = value
 
     def display(self):
-        return "First Name: %s; Last Name: %s; Address: %s; Student ID: %s; Major: %s; GPA: %.2f" % (self.person.fname, self.person.lname, self.person.address, self.student_id, self.major, self.gpa)
+        return "First Name: %s; Last Name: %s; Address: %s; Student ID: %s; Major: %s; GPA: %.2f" % (self.person.first_name, self.person.last_name, self.person.address, self.student_id, self.major, self.gpa)
