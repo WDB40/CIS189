@@ -15,21 +15,21 @@ if __name__ == '__main__':
 
     print("Salaried 1: Pre-raise")
     salaried = SalariedEmployee("Brown", "Wes", "111 Main Street", "555-555-5555", today, 40000)
-    salaried.display()
+    print(salaried.display())
 
     print("Salaried 1: Post-raise")
     salaried.give_raise(5000)
-    salaried.display()
+    print(salaried.display())
 
     del salaried
 
     print("Hourly 2: Pre-raise")
     hourly = HourlyEmployee("Brown", "Wes", "222 2nd Street", "444-444-4444", today, 10)
-    hourly.display()
+    print(hourly.display())
 
     print("Hourly 2: Post-raise")
     hourly.give_raise(2)
-    hourly.display()
+    print(hourly.display())
 
     del hourly
 

@@ -22,8 +22,7 @@ class Employee:
         return "%s %s" % (self._first_name, self._last_name)
 
     def display(self):
-        print(self._format_name())
-        print(self._address)
+        return f"{self._format_name()}\n{self._address}"
 
     def __str__(self) -> str:
         return "First Name: %s; Last Name: %s; Address: %s; Phone Number: %s;" % (

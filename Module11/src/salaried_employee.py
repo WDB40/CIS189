@@ -27,6 +27,4 @@ class SalariedEmployee(Employee):
         self._salary = self._salary + raise_amount
 
     def display(self):
-        super().display()
-        print(self._format_start_date())
-        print(self._get_payment_info())
+        return super().display() + f"\n{self._format_start_date()}\n{self._get_payment_info()}"
