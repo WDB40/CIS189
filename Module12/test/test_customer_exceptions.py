@@ -1,3 +1,12 @@
+"""
+Program: test_customer_exceptions.py
+Author: Wes Brown
+Last date modified: 11/11/19
+
+Purpose: Testing exceptions used in the customer class
+"""
+
+
 import unittest
 from Module12.src.customer import Customer
 from Module12.src.customer_exceptions import *
