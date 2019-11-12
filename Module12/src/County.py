@@ -1,3 +1,12 @@
+"""
+Program: county.py
+Author: Wes Brown
+Last date modified: 11/11/19
+
+Purpose: County class used for file reading.
+"""
+
+
 def clean_dollar_formatting(value):
     return float(str(value).strip('$').strip(" ").replace(',', ''))
 

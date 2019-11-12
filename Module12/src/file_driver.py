@@ -1,3 +1,10 @@
+"""
+Program: file_driver.py
+Author: Wes Brown
+Last date modified: 11/11/19
+
+Purpose: Testing the csv file reading for the county class
+"""
 
 import csv
 from Module12.src.County import County
