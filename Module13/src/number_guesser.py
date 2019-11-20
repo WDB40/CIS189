@@ -23,4 +23,5 @@ class NumberGuesser:
         self._guessed_list = value
 
     def add_guess(self, value):
-        self._guessed_list.append(value)
+        if value not in self.guessed_list:
+            self._guessed_list.append(value)
