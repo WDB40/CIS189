@@ -9,7 +9,10 @@ Purpose: Contain information related to the guessed values in a number guessing 
 
 class NumberGuesser:
     def __init__(self, guessed_list=None):
-        self.guessed_list = guessed_list
+        if guessed_list is None:
+            self.guessed_list = []
+        else:
+            self.guessed_list = guessed_list
 
     @property
     def guessed_list(self):
