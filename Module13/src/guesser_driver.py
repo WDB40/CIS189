@@ -10,6 +10,10 @@ import tkinter
 from tkinter import messagebox
 from random import randint
 from Module13.src.number_guesser import NumberGuesser
+import math
+
+NUMBER_OPTIONS = 20
+NUMBER_COLUMNS = 5
 
 
 def select_number(value):
@@ -32,7 +36,18 @@ def reset_game():
 
 def create_new_winning_number():
     global winning_number
-    winning_number = randint(0, 10)
+    winning_number = randint(0, NUMBER_OPTIONS)
+
+
+def get_row(value):
+    return math.ceil(value / NUMBER_COLUMNS)
+
+
+def get_column(value):
+    if value % NUMBER_COLUMNS == 0:
+        return NUMBER_COLUMNS - 1
+    else:
+        return (value - (math.floor(value / NUMBER_COLUMNS) * NUMBER_COLUMNS)) - 1
 
 
 if __name__ == '__main__':
@@ -46,13 +61,13 @@ if __name__ == '__main__':
     game.title("Number Guesser Game")
 
     label = tkinter.Label(game, text="Guess a number!")
-    label.grid(row=0)
+    label.grid(row=0, columnspan=NUMBER_COLUMNS-1)
 
-    for i in range(1, 11):
+    for i in range(1, NUMBER_OPTIONS + 1):
         buttons[i] = tkinter.Button(game, text=f"{i}")
         buttons[i].config(command=lambda value=i: select_number(value))
-        buttons[i].grid(row=i)
+        buttons[i].grid(row=get_row(i), column=get_column(i))
 
-    close_button = tkinter.Button(game, text="Close Game", command=game.destroy).grid(row=11)
+    close_button = tkinter.Button(game, text="Close Game", command=game.destroy).grid(row=NUMBER_OPTIONS, columnspan=NUMBER_COLUMNS-1)
 
     game.mainloop()
