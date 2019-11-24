@@ -162,3 +162,14 @@ insert_debt_equity_query = """INSERT INTO debt_equity (ticker, ratio, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_debt_equity_query = """SELECT * FROM debt_equity;"""
+
+# PROFIT QUERIES
+profit_table_query = """CREATE TABLE IF NOT EXISTS profit (
+                                    ticker TEXT PRIMARY KEY,
+                                    profit REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_profit_query = """INSERT INTO profit (ticker, profit, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_profit_query = """SELECT * FROM profit;"""

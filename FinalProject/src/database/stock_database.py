@@ -41,6 +41,7 @@ class StockDatabase:
         self.create_table(income_table_query)
         self.create_table(roa_table_query)
         self.create_table(debt_equity_table_query)
+        self.create_table(profit_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -157,3 +158,10 @@ class StockDatabase:
 
     def get_all_debt_equity(self):
         return self.return_records(view_all_debt_equity_query)
+
+    def insert_profit(self, ticker, profit, rank):
+        insert = (ticker, profit, rank)
+        self.insert_record(insert_profit_query, insert)
+
+    def get_all_profit(self):
+        return self.return_records(view_all_profit_query)

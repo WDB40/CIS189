@@ -23,6 +23,7 @@ class StockFileLoader:
         self.all_incomes = {}
         self.all_ROAs = {}
         self.all_debt_equities = {}
+        self.all_profits = {}
         self.database = StockDatabase()
 
     def read_file(self):
@@ -50,6 +51,7 @@ class StockFileLoader:
                 income = RankingRecord(row[0], row[25], row[26])
                 roa = RankingRecord(row[0], row[27], row[28])
                 debt_equity = RankingRecord(row[0], row[29], row[30])
+                profit = RankingRecord(row[0], row[31], row[32])
 
                 self.all_stocks[stock.ticker] = stock
                 self.all_recent_earnings[recent_earnings.ticker] = recent_earnings
@@ -66,6 +68,7 @@ class StockFileLoader:
                 self.all_incomes[income.ticker] = income
                 self.all_ROAs[roa.ticker] = roa
                 self.all_debt_equities[debt_equity.ticker] = debt_equity
+                self.all_profits[profit.ticker] = profit
 
     def load_to_database(self):
         self.read_file()
@@ -113,3 +116,6 @@ class StockFileLoader:
 
         for value in self.all_debt_equities.values():
             self.database.insert_debt_equity(value.ticker, value.factor, value.rank)
+
+        for value in self.all_profits.values():
+            self.database.insert_profit(value.ticker, value.factor, value.rank)

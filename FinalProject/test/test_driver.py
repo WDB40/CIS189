@@ -8,7 +8,7 @@ if __name__ == '__main__':
     file_loader = StockFileLoader()
     file_loader.load_to_database()
 
-    records = database.get_all_debt_equity()
+    records = database.get_all_profit()
 
     for record in records:
         print(record)
