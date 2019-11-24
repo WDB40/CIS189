@@ -28,5 +28,5 @@ class StockRecord:
     def last_price(self, value):
         self._last_price = value
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"StockRecord[Ticker: {self.ticker}; Name: {self.name}; Last Price: {self.last_price}]"
