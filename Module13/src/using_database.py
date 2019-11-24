@@ -49,7 +49,7 @@ def create_tables(database):
         print("Unable to connect to " + str(database))
 
 
-def create_person(connection, person):
+def insert_person(connection, person):
     sql_statement = """INSERT INTO person(firstname, lastname)
                             VALUES(?, ?);"""
     cursor = connection.cursor()
@@ -57,7 +57,7 @@ def create_person(connection, person):
     return cursor.lastrowid
 
 
-def create_student(connection, student):
+def insert_student(connection, student):
     sql_statement = """INSERT INTO student(id, major, begin_date)
                             VALUES(?, ?, ?);"""
     cursor = connection.cursor()
@@ -79,9 +79,14 @@ def select_all_students(connection):
     return cursor.fetchall()
 
 
-if __name__ == '__main__':
-    conn = create_connection("phythonsqlite.db")
-    with conn:
-        rows = select_all_students(conn)
-        for row in rows:
-            print(row)
+def get_person_id(connection, firstname, lastname):
+    sql_statement = """SELECT id FROM person
+                            WHERE firstname = ? AND lastname = ?;"""
+    person = (firstname, lastname)
+    cursor = connection.cursor()
+    cursor.execute(sql_statement, person)
+    id = cursor.fetchone()
+    if id is not None:
+        return id[0]
+    else:
+        return id
