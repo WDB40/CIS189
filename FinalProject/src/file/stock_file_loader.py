@@ -18,6 +18,7 @@ class StockFileLoader:
         self.all_div_yields = {}
         self.all_price_books = {}
         self.all_price_sales = {}
+        self.all_market_caps = {}
         self.database = StockDatabase()
 
     def read_file(self):
@@ -40,6 +41,7 @@ class StockFileLoader:
                 div_yield = RankingRecord(row[0], row[15], row[16])
                 price_book = RankingRecord(row[0], row[17], row[18])
                 price_sales = RankingRecord(row[0], row[19], row[20])
+                market_cap = RankingRecord(row[0], row[21], row[22])
 
                 self.all_stocks[stock.ticker] = stock
                 self.all_recent_earnings[recent_earnings.ticker] = recent_earnings
@@ -51,6 +53,7 @@ class StockFileLoader:
                 self.all_div_yields[div_yield.ticker] = div_yield
                 self.all_price_books[price_book.ticker] = price_book
                 self.all_price_sales[price_sales.ticker] = price_sales
+                self.all_market_caps[market_cap.ticker] = market_cap
 
     def load_to_database(self):
         self.read_file()
@@ -83,3 +86,6 @@ class StockFileLoader:
 
         for value in self.all_price_sales.values():
             self.database.insert_price_sales(value.ticker, value.factor, value.rank)
+
+        for value in self.all_market_caps.values():
+            self.database.insert_market_cap(value.ticker, value.factor, value.rank)

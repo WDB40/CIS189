@@ -107,3 +107,15 @@ insert_price_sales_query = """INSERT INTO price_sales (ticker, ratio, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_price_sales_query = """SELECT * FROM price_sales;"""
+
+# MARKET CAP QUERIES
+market_cap_table_query = """CREATE TABLE IF NOT EXISTS market_cap (
+                                    ticker TEXT PRIMARY KEY,
+                                    market_cap REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_market_cap_query = """INSERT INTO market_cap (ticker, market_cap, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_market_cap_query = """SELECT * FROM market_cap;"""
+
