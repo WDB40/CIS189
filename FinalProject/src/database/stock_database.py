@@ -34,6 +34,7 @@ class StockDatabase:
         self.create_table(five_year_earnings_table_query)
         self.create_table(five_year_div_table_query)
         self.create_table(div_yield_table_query)
+        self.create_table(price_book_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -101,3 +102,10 @@ class StockDatabase:
 
     def get_all_div_yield(self):
         return self.return_records(view_all_div_yield_query)
+
+    def insert_price_book(self, ticker, ratio, rank):
+        insert = (ticker, ratio, rank)
+        self.insert_record(insert_price_book_query, insert)
+
+    def get_all_price_book(self):
+        return self.return_records(view_all_price_book_query)

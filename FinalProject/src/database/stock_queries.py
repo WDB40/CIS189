@@ -86,3 +86,13 @@ insert_div_yield_query = """INSERT INTO div_yield (ticker, div, rank)
 
 view_all_div_yield_query = """SELECT * FROM div_yield;"""
 
+# PRICE/BOOK QUERIES
+price_book_table_query = """CREATE TABLE IF NOT EXISTS price_book (
+                                    ticker TEXT PRIMARY KEY,
+                                    ratio REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_price_book_query = """INSERT INTO price_book (ticker, ratio, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_price_book_query = """SELECT * FROM price_book;"""
