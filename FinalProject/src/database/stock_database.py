@@ -29,6 +29,7 @@ class StockDatabase:
         self.create_table(stock_base_table_query)
         self.create_table(recent_earnings_table_query)
         self.create_table(past_year_earnings_table_query)
+        self.create_table(pe_ratio_table_query)
 
     def insert_stock_base(self, ticker, name, last_price):
         insert = (ticker, name, last_price)
@@ -64,4 +65,16 @@ class StockDatabase:
         with self.connection:
             cursor = self.connection.cursor()
             cursor.execute(view_all_past_year_earnings_query)
+            return cursor.fetchall()
+
+    def insert_pe_ratio(self, ticker, ratio, rank):
+        insert = (ticker, ratio, rank)
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(insert_pe_ratio_query, insert)
+
+    def get_all_pe_ratio(self):
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(view_all_pe_ratio_query)
             return cursor.fetchall()
