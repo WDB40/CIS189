@@ -63,3 +63,14 @@ insert_five_year_earnings_query = """INSERT INTO five_year_earnings (ticker, ear
                                         VALUES(?, ?, ?);"""
 
 view_all_five_year_earnings_query = """SELECT * FROM five_year_earnings;"""
+
+# 5 YEAR DIVIDEND QUERIES
+five_year_div_table_query = """CREATE TABLE IF NOT EXISTS five_year_div (
+                                    ticker TEXT PRIMARY KEY,
+                                    div REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_five_year_div_query = """INSERT INTO five_year_div (ticker, div, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_five_year_div_query = """SELECT * FROM five_year_div;"""
