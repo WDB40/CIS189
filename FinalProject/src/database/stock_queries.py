@@ -151,3 +151,14 @@ insert_roa_query = """INSERT INTO roa (ticker, roa, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_roa_query = """SELECT * FROM roa;"""
+
+# DEBT/EQUITY QUERIES
+debt_equity_table_query = """CREATE TABLE IF NOT EXISTS debt_equity (
+                                    ticker TEXT PRIMARY KEY,
+                                    ratio REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_debt_equity_query = """INSERT INTO debt_equity (ticker, ratio, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_debt_equity_query = """SELECT * FROM debt_equity;"""
