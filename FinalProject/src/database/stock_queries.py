@@ -96,3 +96,14 @@ insert_price_book_query = """INSERT INTO price_book (ticker, ratio, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_price_book_query = """SELECT * FROM price_book;"""
+
+# PRICE/SALES QUERIES
+price_sales_table_query = """CREATE TABLE IF NOT EXISTS price_sales (
+                                    ticker TEXT PRIMARY KEY,
+                                    ratio REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_price_sales_query = """INSERT INTO price_sales (ticker, ratio, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_price_sales_query = """SELECT * FROM price_sales;"""
