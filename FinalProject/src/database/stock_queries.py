@@ -140,3 +140,14 @@ insert_income_query = """INSERT INTO income (ticker, income, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_income_query = """SELECT * FROM income;"""
+
+# ROA QUERIES
+roa_table_query = """CREATE TABLE IF NOT EXISTS roa (
+                                    ticker TEXT PRIMARY KEY,
+                                    roa REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_roa_query = """INSERT INTO roa (ticker, roa, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_roa_query = """SELECT * FROM roa;"""

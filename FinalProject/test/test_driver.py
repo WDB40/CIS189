@@ -8,7 +8,7 @@ if __name__ == '__main__':
     file_loader = StockFileLoader()
     file_loader.load_to_database()
 
-    records = database.get_all_income()
+    records = database.get_all_roa()
 
     for record in records:
         print(record)
