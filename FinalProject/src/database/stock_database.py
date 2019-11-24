@@ -37,6 +37,7 @@ class StockDatabase:
         self.create_table(price_book_table_query)
         self.create_table(price_sales_table_query)
         self.create_table(market_cap_table_query)
+        self.create_table(volume_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -125,3 +126,10 @@ class StockDatabase:
 
     def get_all_market_cap(self):
         return self.return_records(view_all_market_cap_query)
+
+    def insert_volume(self, ticker, volume, rank):
+        insert = (ticker, volume, rank)
+        self.insert_record(insert_volume_query, insert)
+
+    def get_all_volume(self):
+        return self.return_records(view_all_volume_query)

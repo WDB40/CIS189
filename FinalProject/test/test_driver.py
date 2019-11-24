@@ -8,7 +8,7 @@ if __name__ == '__main__':
     file_loader = StockFileLoader()
     file_loader.load_to_database()
 
-    records = database.get_all_market_cap()
+    records = database.get_all_volume()
 
     for record in records:
         print(record)

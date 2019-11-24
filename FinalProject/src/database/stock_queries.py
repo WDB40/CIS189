@@ -119,3 +119,13 @@ insert_market_cap_query = """INSERT INTO market_cap (ticker, market_cap, rank)
 
 view_all_market_cap_query = """SELECT * FROM market_cap;"""
 
+# VOLUME QUERIES
+volume_table_query = """CREATE TABLE IF NOT EXISTS volume (
+                                    ticker TEXT PRIMARY KEY,
+                                    volume REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_volume_query = """INSERT INTO volume (ticker, volume, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_volume_query = """SELECT * FROM volume;"""
