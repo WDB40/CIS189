@@ -8,7 +8,7 @@ if __name__ == '__main__':
     file_loader = StockFileLoader()
     file_loader.load_to_database()
 
-    records = database.get_all_five_year_rev()
+    records = database.get_all_five_year_earnings()
 
     for record in records:
         print(record)

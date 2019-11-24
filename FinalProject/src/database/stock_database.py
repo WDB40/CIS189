@@ -31,6 +31,7 @@ class StockDatabase:
         self.create_table(past_year_earnings_table_query)
         self.create_table(pe_ratio_table_query)
         self.create_table(five_year_rev_table_query)
+        self.create_table(five_year_earnings_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -77,3 +78,10 @@ class StockDatabase:
 
     def get_all_five_year_rev(self):
         return self.return_records(view_all_five_year_rev_query)
+
+    def insert_five_year_earnings(self, ticker, earnings, rank):
+        insert = (ticker, earnings, rank)
+        self.insert_record(insert_five_year_earnings_query, insert)
+
+    def get_all_five_year_earnings(self):
+        return self.return_records(view_all_five_year_earnings_query)
