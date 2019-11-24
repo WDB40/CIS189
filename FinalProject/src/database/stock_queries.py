@@ -129,3 +129,14 @@ insert_volume_query = """INSERT INTO volume (ticker, volume, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_volume_query = """SELECT * FROM volume;"""
+
+# INCOME QUERIES
+income_table_query = """CREATE TABLE IF NOT EXISTS income (
+                                    ticker TEXT PRIMARY KEY,
+                                    income REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_income_query = """INSERT INTO income (ticker, income, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_income_query = """SELECT * FROM income;"""

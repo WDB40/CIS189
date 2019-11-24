@@ -38,6 +38,7 @@ class StockDatabase:
         self.create_table(price_sales_table_query)
         self.create_table(market_cap_table_query)
         self.create_table(volume_table_query)
+        self.create_table(income_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -133,3 +134,10 @@ class StockDatabase:
 
     def get_all_volume(self):
         return self.return_records(view_all_volume_query)
+
+    def insert_income(self, ticker, income, rank):
+        insert = (ticker, income, rank)
+        self.insert_record(insert_income_query, insert)
+
+    def get_all_income(self):
+        return self.return_records(view_all_income_query)
