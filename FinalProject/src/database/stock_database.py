@@ -28,6 +28,7 @@ class StockDatabase:
     def initialize_database(self):
         self.create_table(stock_base_table_query)
         self.create_table(recent_earnings_table_query)
+        self.create_table(past_year_earnings_table_query)
 
     def insert_stock_base(self, ticker, name, last_price):
         insert = (ticker, name, last_price)
@@ -51,4 +52,16 @@ class StockDatabase:
         with self.connection:
             cursor = self.connection.cursor()
             cursor.execute(view_all_recent_earnings_query)
+            return cursor.fetchall()
+
+    def insert_past_year_earnings(self, ticker, earnings, rank):
+        insert = (ticker, earnings, rank)
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(insert_past_year_earnings_query, insert)
+
+    def get_all_past_year_earnings(self):
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(view_all_past_year_earnings_query)
             return cursor.fetchall()

@@ -19,3 +19,25 @@ insert_recent_earnings_query = """INSERT INTO recent_earnings(ticker, earnings, 
                                         VALUES(?, ?, ?);"""
 
 view_all_recent_earnings_query = """SELECT * FROM recent_earnings;"""
+
+# PAST YEAR EARNINGS QUERIES
+past_year_earnings_table_query = """CREATE TABLE IF NOT EXISTS past_year_earnings (
+                                    ticker TEXT PRIMARY KEY,
+                                    earnings REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_past_year_earnings_query = """INSERT INTO past_year_earnings(ticker, earnings, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_past_year_earnings_query = """SELECT * FROM past_year_earnings;"""
+
+# P/E RATIO QUERIES
+pe_ratio_table_query = """CREATE TABLE IF NOT EXISTS pe_ratio (
+                                    ticker TEXT PRIMARY KEY,
+                                    ratio REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_pe_ratio_query = """INSERT INTO pe_ratio(ticker, ratio, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_pe_ratio_query = """SELECT * FROM pe_ratio;"""
