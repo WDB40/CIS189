@@ -12,6 +12,7 @@ class StockFileLoader:
         self.all_recent_earnings = {}
         self.all_past_year_earnings = {}
         self.all_pe_ratios = {}
+        self.all_five_year_revs = {}
         self.database = StockDatabase()
 
     def read_file(self):
@@ -28,11 +29,13 @@ class StockFileLoader:
                 recent_earnings = RankingRecord(row[0], row[3], row[4])
                 past_year_earnings = RankingRecord(row[0], row[5], row[6])
                 pe_ratio = RankingRecord(row[0], row[7], row[8])
+                five_year_rev = RankingRecord(row[0], row[9], row[10])
 
                 self.all_stocks[stock.ticker] = stock
                 self.all_recent_earnings[recent_earnings.ticker] = recent_earnings
                 self.all_past_year_earnings[past_year_earnings.ticker] = past_year_earnings
                 self.all_pe_ratios[pe_ratio.ticker] = pe_ratio
+                self.all_five_year_revs[five_year_rev.ticker] = five_year_rev
 
     def load_to_database(self):
         self.read_file()
@@ -44,3 +47,5 @@ class StockFileLoader:
             self.database.insert_past_year_earnings(value.ticker, value.factor, value.rank)
         for value in self.all_pe_ratios.values():
             self.database.insert_pe_ratio(value.ticker, value.factor, value.rank)
+        for value in self.all_five_year_revs.values():
+            self.database.insert_five_year_rev(value.ticker, value.factor, value.rank)

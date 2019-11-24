@@ -48,7 +48,7 @@ five_year_rev_table_query = """CREATE TABLE IF NOT EXISTS five_year_rev (
                                     rev REAL NOT NULL,
                                     rank INT NOT NULL);"""
 
-insert_five_year_rev_query = """INSERT INTO five_year_rev(ticker, rev, rank)
+insert_five_year_rev_query = """INSERT INTO five_year_rev (ticker, rev, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_five_year_rev_query = """SELECT * FROM five_year_rev;"""
