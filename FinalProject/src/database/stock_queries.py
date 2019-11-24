@@ -74,3 +74,15 @@ insert_five_year_div_query = """INSERT INTO five_year_div (ticker, div, rank)
                                         VALUES(?, ?, ?);"""
 
 view_all_five_year_div_query = """SELECT * FROM five_year_div;"""
+
+# DIVIDEND YIELD QUERIES
+div_yield_table_query = """CREATE TABLE IF NOT EXISTS div_yield (
+                                    ticker TEXT PRIMARY KEY,
+                                    div REAL NOT NULL,
+                                    rank INT NOT NULL);"""
+
+insert_div_yield_query = """INSERT INTO div_yield (ticker, div, rank)
+                                        VALUES(?, ?, ?);"""
+
+view_all_div_yield_query = """SELECT * FROM div_yield;"""
+

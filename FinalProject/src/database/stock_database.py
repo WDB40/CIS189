@@ -33,6 +33,7 @@ class StockDatabase:
         self.create_table(five_year_rev_table_query)
         self.create_table(five_year_earnings_table_query)
         self.create_table(five_year_div_table_query)
+        self.create_table(div_yield_table_query)
 
     def insert_record(self, sql_statement, insert):
         with self.connection:
@@ -93,3 +94,10 @@ class StockDatabase:
 
     def get_all_five_year_div(self):
         return self.return_records(view_all_five_year_div_query)
+
+    def insert_div_yield(self, ticker, div, rank):
+        insert = (ticker, div, rank)
+        self.insert_record(insert_div_yield_query, insert)
+
+    def get_all_div_yield(self):
+        return self.return_records(view_all_div_yield_query)

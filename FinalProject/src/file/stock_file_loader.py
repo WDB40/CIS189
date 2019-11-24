@@ -15,6 +15,7 @@ class StockFileLoader:
         self.all_five_year_revs = {}
         self.all_five_year_earnings = {}
         self.all_five_year_divs = {}
+        self.all_div_yields = {}
         self.database = StockDatabase()
 
     def read_file(self):
@@ -34,6 +35,7 @@ class StockFileLoader:
                 five_year_rev = RankingRecord(row[0], row[9], row[10])
                 five_year_earnings = RankingRecord(row[0], row[11], row[12])
                 five_year_div = RankingRecord(row[0], row[13], row[14])
+                div_yield = RankingRecord(row[0], row[15], row[16])
 
                 self.all_stocks[stock.ticker] = stock
                 self.all_recent_earnings[recent_earnings.ticker] = recent_earnings
@@ -42,6 +44,7 @@ class StockFileLoader:
                 self.all_five_year_revs[five_year_rev.ticker] = five_year_rev
                 self.all_five_year_earnings[five_year_earnings.ticker] = five_year_earnings
                 self.all_five_year_divs[five_year_div.ticker] = five_year_div
+                self.all_div_yields[div_yield.ticker] = div_yield
 
     def load_to_database(self):
         self.read_file()
@@ -65,3 +68,6 @@ class StockFileLoader:
 
         for value in self.all_five_year_divs.values():
             self.database.insert_five_year_div(value.ticker, value.factor, value.rank)
+
+        for value in self.all_div_yields.values():
+            self.database.insert_div_yield(value.ticker, value.factor, value.rank)
