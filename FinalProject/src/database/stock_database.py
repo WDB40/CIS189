@@ -31,50 +31,41 @@ class StockDatabase:
         self.create_table(past_year_earnings_table_query)
         self.create_table(pe_ratio_table_query)
 
+    def insert_record(self, sql_statement, insert):
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(sql_statement, insert)
+
+    def return_records(self, sql_statement):
+        with self.connection:
+            cursor = self.connection.cursor()
+            cursor.execute(sql_statement)
+            return cursor.fetchall()
+
     def insert_stock_base(self, ticker, name, last_price):
         insert = (ticker, name, last_price)
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(insert_stock_base_query, insert)
+        self.insert_record(insert_stock_base_query, insert)
 
     def get_all_stock_base(self):
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(view_all_base_stock_query)
-            return cursor.fetchall()
+        return self.return_records(view_all_base_stock_query)
 
     def insert_recent_earnings(self, ticker, earnings, rank):
         insert = (ticker, earnings, rank)
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(insert_recent_earnings_query, insert)
+        self.insert_record(insert_recent_earnings_query, insert)
 
     def get_all_recent_earnings(self):
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(view_all_recent_earnings_query)
-            return cursor.fetchall()
+        return self.return_records(view_all_recent_earnings_query)
 
     def insert_past_year_earnings(self, ticker, earnings, rank):
         insert = (ticker, earnings, rank)
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(insert_past_year_earnings_query, insert)
+        self.insert_record(insert_past_year_earnings_query, insert)
 
     def get_all_past_year_earnings(self):
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(view_all_past_year_earnings_query)
-            return cursor.fetchall()
+        return self.return_records(view_all_past_year_earnings_query)
 
     def insert_pe_ratio(self, ticker, ratio, rank):
         insert = (ticker, ratio, rank)
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(insert_pe_ratio_query, insert)
+        self.insert_record(insert_pe_ratio_query, insert)
 
     def get_all_pe_ratio(self):
-        with self.connection:
-            cursor = self.connection.cursor()
-            cursor.execute(view_all_pe_ratio_query)
-            return cursor.fetchall()
+        return self.return_records(view_all_pe_ratio_query)
