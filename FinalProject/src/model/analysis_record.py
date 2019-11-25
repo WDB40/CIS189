@@ -13,6 +13,9 @@ class AnalysisRecord:
         self.factor_five = ""
         self.rank_five = ""
 
+    def __str__(self):
+        return f"AnalysisRecord[Ticker: {self.ticker}; Average Rank: {self.average_rank}; One Value: {self.factor_one}; One Rank: {self.rank_one}; Two Value: {self.factor_two}; Two Rank: {self.rank_two}; Three Value: {self.factor_three}; Three Rank: {self.rank_three}; Four Value: {self.factor_four}; Four Rank: {self.rank_four}; Five Value: {self.factor_five}; Five Rank: {self.rank_five}]"
+
     @property
     def ticker(self):
         return self._ticker

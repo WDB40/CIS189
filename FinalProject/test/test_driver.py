@@ -2,6 +2,7 @@ from FinalProject.src.database.stock_database import *
 from FinalProject.src.file.stock_file_loader import StockFileLoader
 from FinalProject.src.analysis.selector import Selector
 from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
+from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
 
 if __name__ == '__main__':
     database = StockDatabase()
@@ -18,9 +19,12 @@ if __name__ == '__main__':
     selector.volume = True
 
     analysis_data = AnalysisDataCollector(selector)
-
     data = analysis_data.get_analysis_data()
-    profit = data["Profit Margin"]
+    testing = AnalysisDataAggregator(data)
 
-    for record in profit:
+    analysis = testing.get_analysis_data()
+
+    for record in analysis.values():
         print(record)
+
+    print(testing.get_headers())
