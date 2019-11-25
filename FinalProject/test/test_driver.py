@@ -3,6 +3,7 @@ from FinalProject.src.file.stock_file_loader import StockFileLoader
 from FinalProject.src.analysis.selector import Selector
 from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
 from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
+from FinalProject.src.file.analysis_file_printer import AnalysisFilePrinter
 
 if __name__ == '__main__':
     database = StockDatabase()
@@ -20,11 +21,6 @@ if __name__ == '__main__':
 
     analysis_data = AnalysisDataCollector(selector)
     data = analysis_data.get_analysis_data()
-    testing = AnalysisDataAggregator(data)
-
-    analysis = testing.get_analysis_data()
-
-    for record in analysis.values():
-        print(record)
-
-    print(testing.get_headers())
+    aggregated = AnalysisDataAggregator(data)
+    file_writer = AnalysisFilePrinter(aggregated)
+    file_writer.write_file("testFile.csv")
