@@ -1,8 +1,10 @@
 import tkinter
+from tkinter import messagebox
 from FinalProject.src.analysis.selector import Selector
 from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
 from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
 from FinalProject.src.file.analysis_file_printer import AnalysisFilePrinter
+
 
 class AnalysisGUI(tkinter.Tk):
     def __init__(self):
@@ -28,7 +30,10 @@ class AnalysisGUI(tkinter.Tk):
         self.debt_equity = tkinter.BooleanVar()
         self.profit = tkinter.BooleanVar()
 
-        self.check_frame = tkinter.Frame(self)
+        self.input_frame = tkinter.Frame(self)
+        self.input_frame.pack(side=tkinter.TOP)
+
+        self.check_frame = tkinter.Frame(self.input_frame)
         self.check_frame.pack(side=tkinter.TOP)
 
         self.earnings_frame = tkinter\
@@ -114,6 +119,22 @@ class AnalysisGUI(tkinter.Tk):
         self.profit_check = tkinter\
             .Checkbutton(self.financials_frame, text="Profit Margin", offvalue=False, onvalue=True, variable=self.profit, command=self.on_select)
         self.profit_check.pack()
+
+        self.filename_frame = tkinter\
+            .Frame(self.input_frame)
+        self.filename_frame.pack(side=tkinter.BOTTOM)
+
+        self.filename_label = tkinter\
+            .Label(self.filename_frame, text="Enter Analysis Name:")
+        self.filename_label.pack(side=tkinter.LEFT)
+
+        self.filename_entry = tkinter\
+            .Entry(self.filename_frame)
+        self.filename_entry.pack(side=tkinter.LEFT)
+
+        self.filename_error = tkinter\
+            .Label(self.filename_frame)
+        self.filename_error.pack(side=tkinter.LEFT)
 
         self.button_frame = tkinter.Frame(self, padx=10, pady=10)
         self.button_frame.pack(side=tkinter.BOTTOM)
@@ -233,10 +254,51 @@ class AnalysisGUI(tkinter.Tk):
         self.selector.debt_equity = self.debt_equity.get()
         self.selector.profit = self.profit.get()
 
+    def reset_checks(self):
+        self.recent_earnings_check.deselect()
+        self.past_year_earnings_check.deselect()
+        self.pe_ratio_check.deselect()
+        self.five_year_rev_check.deselect()
+        self.five_year_earnings_check.deselect()
+        self.five_year_div_check.deselect()
+        self.div_yield_check.deselect()
+        self.price_book_check.deselect()
+        self.price_sales_check.deselect()
+        self.market_cap_check.deselect()
+        self.volume_check.deselect()
+        self.income_check.deselect()
+        self.roa_check.deselect()
+        self.debt_equity_check.deselect()
+        self.profit_check.deselect()
+
+    def reset_analysis(self):
+        self.enable_all_checks()
+        self.reset_checks()
+        self.filename_entry.delete(0, tkinter.END)
+        self.filename_error.config(text="")
+        self.create_analysis_button.config(state=tkinter.DISABLED)
+
+    def validate_filename(self):
+        filename = self.filename_entry.get()
+        if filename == "":
+            self.filename_error.config(text="Please enter a filename.")
+            return False
+        elif not filename.isalpha():
+            self.filename_error.config(text="Alpha characters only for filename.")
+            return False
+        else:
+            self.filename_error.config(text="")
+            return True
+
     def create_analysis(self):
-        self.set_selector()
-        data_collector = AnalysisDataCollector(self.selector)
-        analysis_data = data_collector.get_analysis_data()
-        aggregated_data = AnalysisDataAggregator(analysis_data)
-        file_writer = AnalysisFilePrinter(aggregated_data)
-        file_writer.write_file("guiFile.csv")
+        if self.validate_filename():
+            self.set_selector()
+            if self.selector.validate_state():
+                filename = f"{self.filename_entry.get()}.csv"
+                data_collector = AnalysisDataCollector(self.selector)
+                analysis_data = data_collector.get_analysis_data()
+                aggregated_data = AnalysisDataAggregator(analysis_data)
+                file_writer = AnalysisFilePrinter(aggregated_data)
+                file_writer.write_file(filename)
+                self.reset_analysis()
+                messagebox.showinfo("Analysis Created", f"{filename} was created.")
