@@ -5,7 +5,7 @@ from FinalProject.src.database.stock_queries import *
 
 class StockDatabase:
 
-    DATABASE_NAME = "testStockDatabase.db"
+    DATABASE_NAME = "stockDatabase.db"
 
     def __init__(self):
         self.connection = self.create_connection()

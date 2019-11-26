@@ -1,5 +1,5 @@
 """
-Program: driver.py
+Program: gui_driver.py
 Author: Wes Brown
 Last date modified: 11/04/19
 
