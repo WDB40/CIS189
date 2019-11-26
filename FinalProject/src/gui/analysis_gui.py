@@ -1,12 +1,16 @@
 import tkinter
 from FinalProject.src.analysis.selector import Selector
-
+from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
+from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
+from FinalProject.src.file.analysis_file_printer import AnalysisFilePrinter
 
 class AnalysisGUI(tkinter.Tk):
     def __init__(self):
         tkinter.Tk.__init__(self)
         self.title("Simple Stock Analysis")
         tkinter.Label(self, text="Please select FIVE factors to create an analysis from:").pack()
+
+        self.selector = Selector()
 
         self.recent_earnings = tkinter.BooleanVar()
         self.past_year_earnings = tkinter.BooleanVar()
@@ -115,7 +119,7 @@ class AnalysisGUI(tkinter.Tk):
         self.button_frame.pack(side=tkinter.BOTTOM)
 
         self.create_analysis_button = tkinter\
-            .Button(self.button_frame, text="Create Analysis", state=tkinter.DISABLED)
+            .Button(self.button_frame, text="Create Analysis", state=tkinter.DISABLED, command=self.create_analysis)
         self.create_analysis_button.pack(side=tkinter.LEFT, padx=5, pady=5)
 
         self.close_button = tkinter\
@@ -211,3 +215,28 @@ class AnalysisGUI(tkinter.Tk):
         else:
             self.enable_all_checks()
             self.create_analysis_button.config(state=tkinter.DISABLED)
+
+    def set_selector(self):
+        self.selector.recent_earnings = self.recent_earnings.get()
+        self.selector.past_year_earnings = self.past_year_earnings.get()
+        self.selector.pe_ratio = self.pe_ratio.get()
+        self.selector.five_year_rev = self.five_year_rev.get()
+        self.selector.five_year_earnings = self.five_year_earnings.get()
+        self.selector.five_year_div = self.five_year_div.get()
+        self.selector.div_yield = self.div_yield.get()
+        self.selector.price_book = self.price_book.get()
+        self.selector.price_sales = self.price_sales.get()
+        self.selector.market_cap = self.market_cap.get()
+        self.selector.volume = self.volume.get()
+        self.selector.income = self.income.get()
+        self.selector.roa = self.roa.get()
+        self.selector.debt_equity = self.debt_equity.get()
+        self.selector.profit = self.profit.get()
+
+    def create_analysis(self):
+        self.set_selector()
+        data_collector = AnalysisDataCollector(self.selector)
+        analysis_data = data_collector.get_analysis_data()
+        aggregated_data = AnalysisDataAggregator(analysis_data)
+        file_writer = AnalysisFilePrinter(aggregated_data)
+        file_writer.write_file("guiFile.csv")
