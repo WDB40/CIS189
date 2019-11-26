@@ -5,7 +5,7 @@ from FinalProject.src.database.stock_database import StockDatabase
 
 
 class StockFileLoader:
-    FILENAME = "C:\\Users\\wbrow\\PycharmProjects\\CIS189\\FinalProject\\src\\file\\ProjectData.csv"
+    FILENAME = "..\\file\\ProjectData.csv"
 
     def __init__(self):
         self.all_stocks = {}
