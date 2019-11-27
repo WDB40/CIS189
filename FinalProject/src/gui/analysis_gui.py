@@ -198,40 +198,9 @@ class AnalysisGUI(tkinter.Tk):
             self.profit_check.config(state=tkinter.DISABLED)
 
     def on_select(self):
-        count = 0
+        self.set_selector()
 
-        if self.recent_earnings.get():
-            count = count + 1
-        if self.past_year_earnings.get():
-            count = count + 1
-        if self.pe_ratio.get():
-            count = count + 1
-        if self.five_year_rev.get():
-            count = count + 1
-        if self.five_year_earnings.get():
-            count = count + 1
-        if self.five_year_div.get():
-            count = count + 1
-        if self.div_yield.get():
-            count = count + 1
-        if self.price_book.get():
-            count = count + 1
-        if self.price_sales.get():
-            count = count + 1
-        if self.market_cap.get():
-            count = count + 1
-        if self.volume.get():
-            count = count + 1
-        if self.income.get():
-            count = count + 1
-        if self.roa.get():
-            count = count + 1
-        if self.debt_equity.get():
-            count = count + 1
-        if self.profit.get():
-            count = count + 1
-
-        if count == 5:
+        if self.selector.validate_state():
             self.disable_non_selected()
             self.create_analysis_button.config(state=tkinter.NORMAL)
         else:
@@ -290,14 +259,12 @@ class AnalysisGUI(tkinter.Tk):
         return valid
 
     def create_analysis(self):
-        if self.validate_filename():
-            self.set_selector()
-            if self.selector.validate_state():
-                filename = f"{self.filename_entry.get()}.csv"
-                data_collector = AnalysisDataCollector(self.selector)
-                analysis_data = data_collector.get_analysis_data()
-                aggregated_data = AnalysisDataAggregator(analysis_data)
-                file_writer = AnalysisFilePrinter(aggregated_data)
-                file_writer.write_file(filename)
-                self.reset_analysis()
-                messagebox.showinfo("Analysis Created", f"{filename} was created.")
+        if self.validate_filename() and self.selector.validate_state():
+            filename = f"{self.filename_entry.get()}.csv"
+            data_collector = AnalysisDataCollector(self.selector)
+            analysis_data = data_collector.get_analysis_data()
+            aggregated_data = AnalysisDataAggregator(analysis_data)
+            file_writer = AnalysisFilePrinter(aggregated_data)
+            file_writer.write_file(filename)
+            self.reset_analysis()
+            messagebox.showinfo("Analysis Created", f"{filename} was created.")
