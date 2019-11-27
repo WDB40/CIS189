@@ -1,5 +1,6 @@
 from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
 import csv
+import datetime
 
 
 class AnalysisFilePrinter:
@@ -11,6 +12,8 @@ class AnalysisFilePrinter:
     def write_file(self, filename):
         with open(filename, 'w', newline='') as analysis_results:
             writer = csv.writer(analysis_results)
+            file_info = ["Name:", filename, "Created On:", datetime.datetime.now()]
+            writer.writerow(file_info)
             headers = ["Ticker", "Average Rank", self.headers[0], f"{self.headers[0]} Rank", self.headers[1], f"{self.headers[1]} Rank", self.headers[2], f"{self.headers[2]} Rank", self.headers[3], f"{self.headers[3]} Rank", self.headers[4], f"{self.headers[4]} Rank"]
             writer.writerow(headers)
 
