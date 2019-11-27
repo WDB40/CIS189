@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox
-from FinalProject.src.analysis.selector import Selector
+from FinalProject.src.validators.selector import Selector
+from FinalProject.src.validators.filename_validator import FilenameValidator
 from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
 from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
 from FinalProject.src.file.analysis_file_printer import AnalysisFilePrinter
@@ -280,15 +281,13 @@ class AnalysisGUI(tkinter.Tk):
 
     def validate_filename(self):
         filename = self.filename_entry.get()
-        if filename == "":
-            self.filename_error.config(text="Please enter a filename.")
-            return False
-        elif not filename.isalpha():
-            self.filename_error.config(text="Alpha characters only for filename.")
-            return False
-        else:
-            self.filename_error.config(text="")
-            return True
+        validator = FilenameValidator()
+        valid = validator.validate(filename)
+
+        if not valid:
+            self.filename_error.config(text=validator.error_text)
+
+        return valid
 
     def create_analysis(self):
         if self.validate_filename():

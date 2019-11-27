@@ -1,5 +1,4 @@
 from FinalProject.src.database.stock_database import StockDatabase
-from FinalProject.src.analysis.selector import Selector
 
 
 class AnalysisDataCollector:
