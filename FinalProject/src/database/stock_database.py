@@ -1,3 +1,12 @@
+"""
+Program: stock_database.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for interacting with the database
+"""
+
+
 import sqlite3
 from sqlite3 import Error
 from FinalProject.src.database.stock_queries import *

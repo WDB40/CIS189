@@ -1,3 +1,12 @@
+"""
+Program: filename_validator.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for validating the name of a file that is entered via the GUI
+"""
+
+
 class FilenameValidator:
     def __init__(self):
         self.valid = False

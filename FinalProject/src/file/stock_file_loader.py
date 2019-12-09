@@ -1,3 +1,12 @@
+"""
+Program: stock_file_loader.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for reading the data in from the excel file
+"""
+
+
 import csv
 from FinalProject.src.model.stock_record import StockRecord
 from FinalProject.src.model.ranking_record import RankingRecord

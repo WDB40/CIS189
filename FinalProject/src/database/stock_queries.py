@@ -1,3 +1,12 @@
+"""
+Program: stock_queries.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: A file with just queries in it
+"""
+
+
 # STOCK BASE TABLE QUERIES
 stock_base_table_query = """CREATE TABLE IF NOT EXISTS stock_base (
                             ticker TEXT PRIMARY KEY,

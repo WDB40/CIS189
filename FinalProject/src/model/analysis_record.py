@@ -1,3 +1,12 @@
+"""
+Program: analysis_record.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: This class is used to store the data for the different factors in the analysis
+"""
+
+
 class AnalysisRecord:
     def __init__(self):
         self.ticker = ""

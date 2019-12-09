@@ -1,3 +1,12 @@
+"""
+Program: analysis_file_printer.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used from printing the AnalysisRecords to a csv file
+"""
+
+
 from FinalProject.src.analysis.analysis_data_aggregator import AnalysisDataAggregator
 import csv
 import datetime

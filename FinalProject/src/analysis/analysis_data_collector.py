@@ -1,3 +1,12 @@
+"""
+Program: analysis_data_collector.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Gets all the data from the database for the analysis
+"""
+
+
 from FinalProject.src.database.stock_database import StockDatabase
 
 

@@ -1,3 +1,12 @@
+"""
+Program: analysis_gui.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Class used to creating the GUI that is used in the class
+"""
+
+
 import tkinter
 from tkinter import messagebox
 from FinalProject.src.validators.selector import Selector

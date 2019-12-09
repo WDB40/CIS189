@@ -1,3 +1,12 @@
+"""
+Program: ranking_record.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for storing information each factor for each stock - each factor has one of these so 15 per stock
+"""
+
+
 class RankingRecord:
     def __init__(self, ticker, factor, rank):
         self.ticker = ticker

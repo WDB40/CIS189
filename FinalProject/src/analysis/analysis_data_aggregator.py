@@ -1,3 +1,12 @@
+"""
+Program: analysis_data_aggregator.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Brings all the data for the analysis into a single dictionary
+"""
+
+
 from FinalProject.src.analysis.analysis_data_collector import AnalysisDataCollector
 from FinalProject.src.model.analysis_record import AnalysisRecord
 

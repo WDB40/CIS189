@@ -1,3 +1,12 @@
+"""
+Program: stock_record.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for storing general stock information for a stock
+"""
+
+
 class StockRecord:
     def __init__(self, ticker, name, last_price):
         self.ticker = ticker

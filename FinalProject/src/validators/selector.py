@@ -1,3 +1,12 @@
+"""
+Program: selector.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Used for keeping track of the factors selected and validating that only 5 were selected
+"""
+
+
 class Selector:
     def __init__(self):
         self.recent_earnings = False
