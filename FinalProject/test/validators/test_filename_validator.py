@@ -1,3 +1,12 @@
+"""
+Program: test_filename_validator.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Testing that the filename_validator works properly
+"""
+
+
 import unittest
 from FinalProject.src.validators.filename_validator import FilenameValidator
 

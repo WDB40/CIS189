@@ -1,3 +1,12 @@
+"""
+Program: test_selector.py
+Author: Wes Brown
+Last date modified: 12/08/19
+
+Purpose: Tests that the selector works properly
+"""
+
+
 import unittest
 from FinalProject.src.validators.selector import Selector
 
